@@ -10,7 +10,7 @@
 </head>
 <body>
 <main class="app" id="app">
-  <header class="top"><div class="brand"><span class="logo">⌁</span>نُجْح للتدريب</div><nav class="nav" aria-label="التنقل"><button class="active" data-page="home">الرئيسية</button><button data-page="courses">الدورات</button><button data-page="live">البث المباشر</button><button data-page="learn">تعلمي</button><button data-page="reports">التقارير</button><button data-page="admin">لوحة التحكم</button></nav><div class="profile"><span id="database-status" style="font-size:12px;color:#667085">جاري ربط البيانات…</span><span>مرحباً، سارة</span><span class="avatar">س</span></div></header>
+  <header class="top"><div class="brand"><span class="logo">⌁</span>نُجْح للتدريب</div><nav class="nav" aria-label="التنقل"><button class="active" data-page="home">الرئيسية</button><button data-page="courses">الدورات</button><button data-page="live">البث المباشر</button><button data-page="learn">تعلمي</button><button data-page="reports">التقارير</button><button id="admin-nav" data-page="admin">لوحة التحكم</button></nav><div class="profile"><span id="database-status" style="font-size:12px;color:#667085">جاري ربط البيانات…</span><button id="auth-button" class="text-btn">تسجيل الدخول</button><span id="profile-name">مرحباً، سارة</span><span class="avatar" id="profile-avatar">س</span></div></header>
   <section class="view active" id="home"><div class="hero"><small>منصة متخصصة في القدرات والتحصيلي</small><h1>استعد بثقة، وتعلّم بطريقتك.</h1><p>دروس مسجلة مركزة، بث حي تفاعلي، وخطة متابعة تجعل هدفك أقرب في كل يوم.</p><button class="light" data-go="courses">استعرض الدورات</button></div><div class="stats"><div class="stat"><b>68%</b><span>متوسط تقدمك</span></div><div class="stat"><b>12</b><span>درساً مكتملًا</span></div><div class="stat"><b>3</b><span>جلسات قادمة</span></div><div class="stat"><b>84%</b><span>متوسط الاختبارات</span></div></div><div class="title-row"><h2>تابع التعلم</h2><button class="text-btn" data-go="learn">كل المحتوى</button></div><div class="cards"><article class="card course"><div class="cover"><span class="tag">قدرات • مسجل</span><h3>اللفظي المكثف</h3></div><div class="inside"><span class="muted">أ. ريم الحربي</span><div class="progress"><i style="width:72%"></i></div><div class="spread"><span class="muted">72% مكتمل</span><button class="text-btn" data-go="learn">استمرار</button></div></div></article><article class="card course"><div class="cover"><span class="tag">تحصيلي • مسجل</span><h3>أساسيات الكيمياء</h3></div><div class="inside"><span class="muted">أ. خالد العتيبي</span><div class="progress"><i style="width:45%"></i></div><div class="spread"><span class="muted">45% مكتمل</span><button class="text-btn" data-go="learn">استمرار</button></div></div></article><article class="card course"><div class="cover"><span class="tag">قدرات • بث حي</span><h3>مراجعة الكمي الأسبوعية</h3></div><div class="inside"><span class="muted">أ. فيصل الشهري</span><div class="progress"><i style="width:20%"></i></div><div class="spread"><span class="muted">تبدأ غداً</span><button class="text-btn" data-go="live">انضمام</button></div></div></article></div></section>
   <section class="view" id="courses"><div class="title-row"><h2>الدورات المتاحة</h2><span class="muted">6 دورات</span></div><div class="filters"><button class="filter active" data-filter="all">الكل</button><button class="filter" data-filter="قدرات">قدرات</button><button class="filter" data-filter="تحصيلي">تحصيلي</button><button class="filter" data-filter="مباشر">بث مباشر</button></div><div class="cards" id="course-list"><article class="card course" data-kind="قدرات مسجل"><div class="cover"><span class="tag">قدرات • مسجل</span><h3>القدرات الشامل</h3></div><div class="inside"><p class="muted">48 درساً • 14 اختباراً</p><div class="spread"><b>349 ر.س</b><button class="primary buy" data-course="القدرات الشامل" data-price="349">اشترك الآن</button></div></div></article><article class="card course" data-kind="تحصيلي مسجل"><div class="cover"><span class="tag">تحصيلي • مسجل</span><h3>تحصيلي علمي كامل</h3></div><div class="inside"><p class="muted">62 درساً • 18 اختباراً</p><div class="spread"><b>429 ر.س</b><button class="primary buy" data-course="تحصيلي علمي كامل" data-price="429">اشترك الآن</button></div></div></article><article class="card course" data-kind="قدرات مباشر"><div class="cover"><span class="tag">قدرات • بث حي</span><h3>معسكر القدرات المكثف</h3></div><div class="inside"><p class="muted">8 لقاءات مباشرة</p><div class="spread"><b>599 ر.س</b><button class="primary buy" data-course="معسكر القدرات المكثف" data-price="599">احجز مقعدك</button></div></div></article></div></section>
   <section class="view" id="live"><div class="title-row"><h2>🔴 مراجعة الكمي الأسبوعية</h2><span class="muted">الحضور: 184 طالباً</span></div><div class="two"><div class="stream"><span class="tag">بث مباشر</span><button class="play" id="live-play">▶</button><b id="live-state">البث يبدأ خلال 05:12 دقيقة</b><span class="muted" style="color:#ced6e9">أ. فيصل الشهري</span></div><div class="card chat"><h3>الدردشة المباشرة</h3><div class="messages" id="messages"><div class="message"><b>ريم:</b> هل سنراجع النسب اليوم؟</div><div class="message"><b>المدرب:</b> نعم، ثم ننتقل إلى المتوسطات.</div></div><input id="chat-input" placeholder="اكتب رسالتك واضغط Enter"></div></div><div class="two"><div class="card"><h3>استطلاع سريع</h3><p>كيف تقيمين مستواك في النسب والتناسب؟</p><div class="filters"><button class="filter poll">محتاج مراجعة</button><button class="filter poll">متوسط</button><button class="filter poll">متمكن</button></div></div><div class="card"><h3>الحضور</h3><p class="muted">تم تسجيل دخولك في 06:58 م.</p><button class="primary" id="attendance">تأكيد الحضور الآن</button></div></div></section>
@@ -19,6 +19,8 @@
   <section class="view" id="admin"><style>.admin-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.admin-kpi{padding:18px}.admin-kpi b{display:block;font-size:26px}.admin-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin-top:18px}.admin-table{width:100%;border-collapse:collapse}.admin-table th,.admin-table td{padding:12px 6px;border-bottom:1px solid var(--line);text-align:right;font-size:14px}.status{display:inline-block;border-radius:14px;padding:4px 8px;background:#ddf8ed;color:#087658;font-size:12px}.status.live{background:#fee5e4;color:#ba2626}.admin-actions{display:flex;gap:8px;flex-wrap:wrap}.small{padding:8px 10px;font-size:13px}@media(max-width:760px){.admin-kpis{grid-template-columns:repeat(2,1fr)}.admin-layout{grid-template-columns:1fr}}@media(max-width:460px){.admin-kpis{grid-template-columns:1fr}}</style><div class="title-row"><div><h2>لوحة التحكم</h2><span class="muted">واجهة إدارية تجريبية — التغييرات محلية في هذه الجلسة.</span></div><button class="primary" id="add-course">+ إضافة دورة</button></div><div class="admin-kpis"><div class="card admin-kpi"><span class="muted">إجمالي الطلاب</span><b>1,284</b><span class="muted">+12% هذا الشهر</span></div><div class="card admin-kpi"><span class="muted">الإيرادات</span><b>48,650 ر.س</b><span class="muted">من 163 طلباً</span></div><div class="card admin-kpi"><span class="muted">الحصص المباشرة</span><b>7</b><span class="muted">خلال هذا الأسبوع</span></div><div class="card admin-kpi"><span class="muted">متوسط الحضور</span><b>91%</b><span class="muted">+3% عن السابق</span></div></div><div class="admin-layout"><section class="card"><div class="title-row"><h3>إدارة الدورات</h3><button class="text-btn" id="refresh-courses">تحديث</button></div><table class="admin-table"><thead><tr><th>الدورة</th><th>النوع</th><th>الطلاب</th><th>الحالة</th></tr></thead><tbody id="admin-courses"><tr><td>القدرات الشامل</td><td>مسجل</td><td>642</td><td><span class="status">منشورة</span></td></tr><tr><td>تحصيلي علمي كامل</td><td>مسجل</td><td>419</td><td><span class="status">منشورة</span></td></tr><tr><td>معسكر القدرات المكثف</td><td>مباشر</td><td>223</td><td><span class="status live">بث قريب</span></td></tr></tbody></table></section><section class="card"><h3>إجراءات سريعة</h3><div class="admin-actions"><button class="primary small" id="new-live">جدولة بث مباشر</button><button class="light small" id="notify">إرسال تنبيه</button><button class="light small" id="export-sales">تصدير المبيعات</button></div><h3 style="margin-top:25px">الطلاب المتعثرون</h3><p><b>34 طالباً</b><br><span class="muted">لم يتابعوا أي درس خلال 7 أيام.</span></p><button class="text-btn" id="remind-students">إرسال تذكير للجميع</button></section></div></section>
   <section class="view" id="payment"><div class="title-row"><h2>إتمام الاشتراك</h2><button class="text-btn" data-go="courses">العودة للدورات</button></div><div class="payment"><div class="card"><h3>اختر وسيلة الدفع</h3><label class="pay-option"><input type="radio" name="pay" checked> <b>مدى / Visa / Mastercard</b></label><label class="pay-option"><input type="radio" name="pay"> <b>Apple Pay</b></label><label class="pay-option"><input type="radio" name="pay"> <b>الدفع بالتقسيط</b></label><p class="muted">هذه واجهة تجريبية؛ تتم معالجة الدفع الحقيقي عبر بوابة آمنة.</p></div><div class="card summary"><h3>ملخص الطلب</h3><div class="spread"><span id="order-course">القدرات الشامل</span><b id="order-price">349 ر.س</b></div><div class="spread"><b>الإجمالي</b><b id="order-total">349 ر.س</b></div><button class="light" id="pay" style="width:100%;margin-top:18px">إتمام الدفع الآمن</button></div></div></section>
 </main><div class="toast" id="toast"></div>
+<div id="auth-modal" hidden style="position:fixed;inset:0;z-index:10;background:#17203399;padding:20px;align-items:center;justify-content:center"><form id="auth-form" class="card" style="width:min(420px,100%);margin:auto"><div class="title-row"><h3 id="auth-title">تسجيل الدخول</h3><button class="text-btn" type="button" id="auth-close">إغلاق</button></div><p class="muted" id="auth-description">سجّل دخولك لإدارة الدورات والمحتوى.</p><label class="muted" for="auth-name" id="auth-name-label" hidden>الاسم الكامل</label><input id="auth-name" class="auth-input" placeholder="الاسم الكامل" hidden><label class="muted" for="auth-email">البريد الإلكتروني</label><input id="auth-email" class="auth-input" type="email" required placeholder="name@example.com"><label class="muted" for="auth-password">كلمة المرور</label><input id="auth-password" class="auth-input" type="password" required minlength="6" placeholder="6 أحرف على الأقل"><button class="primary" style="width:100%;margin-top:15px" id="auth-submit">دخول</button><button class="text-btn" style="display:block;margin:12px auto 0" type="button" id="auth-mode">إنشاء حساب جديد</button></form></div>
+<style>.auth-input{display:block;width:100%;margin:6px 0 14px;padding:11px;border:1px solid var(--line);border-radius:9px;font:inherit}</style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
   (() => {
@@ -68,6 +70,64 @@
       }).join('');
       document.querySelectorAll('.remote-buy').forEach((button) => button.addEventListener('click', () => openPayment(button.dataset.title, button.dataset.price)));
     };
+    const modal = document.getElementById('auth-modal');
+    const authForm = document.getElementById('auth-form');
+    const authName = document.getElementById('auth-name');
+    const authNameLabel = document.getElementById('auth-name-label');
+    const authTitle = document.getElementById('auth-title');
+    const authDescription = document.getElementById('auth-description');
+    const authSubmit = document.getElementById('auth-submit');
+    const authMode = document.getElementById('auth-mode');
+    const authButton = document.getElementById('auth-button');
+    let registering = false;
+    let currentProfile = null;
+    const setModalMode = (mode) => {
+      registering = mode;
+      authTitle.textContent = mode ? 'إنشاء حساب جديد' : 'تسجيل الدخول';
+      authDescription.textContent = mode ? 'أنشئ حسابك، ثم أكد بريدك الإلكتروني إن طُلب منك ذلك.' : 'سجّل دخولك لإدارة الدورات والمحتوى.';
+      authName.hidden = !mode; authNameLabel.hidden = !mode;
+      authSubmit.textContent = mode ? 'إنشاء الحساب' : 'دخول';
+      authMode.textContent = mode ? 'لدي حساب بالفعل' : 'إنشاء حساب جديد';
+    };
+    const openAuth = () => { modal.hidden = false; modal.style.display = 'flex'; };
+    const closeAuth = () => { modal.hidden = true; modal.style.display = 'none'; };
+    const updateAccount = async () => {
+      const { data: { session } } = await database.auth.getSession();
+      if (!session) { currentProfile = null; authButton.textContent = 'تسجيل الدخول'; document.getElementById('profile-name').textContent = 'مرحباً، سارة'; return; }
+      const { data } = await database.from('profiles').select('full_name,role').eq('id', session.user.id).single();
+      currentProfile = data || { full_name: session.user.email, role: 'student' };
+      document.getElementById('profile-name').textContent = 'مرحباً، ' + currentProfile.full_name;
+      document.getElementById('profile-avatar').textContent = currentProfile.full_name.charAt(0);
+      authButton.textContent = 'تسجيل الخروج';
+    };
+    authButton.addEventListener('click', async () => { if (currentProfile) { await database.auth.signOut(); await updateAccount(); return; } openAuth(); });
+    document.getElementById('auth-close').addEventListener('click', closeAuth);
+    authMode.addEventListener('click', () => setModalMode(!registering));
+    authForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const email = document.getElementById('auth-email').value.trim();
+      const password = document.getElementById('auth-password').value;
+      if (registering) {
+        const { error } = await database.auth.signUp({ email, password, options: { data: { full_name: authName.value.trim() || email.split('@')[0] } } });
+        if (error) { alert(error.message); return; }
+        alert('تم إنشاء الحساب. تحقق من بريدك الإلكتروني ثم سجّل الدخول.'); setModalMode(false); return;
+      }
+      const { error } = await database.auth.signInWithPassword({ email, password });
+      if (error) { alert(error.message); return; }
+      closeAuth(); await updateAccount();
+    });
+    document.getElementById('admin-nav').addEventListener('click', (event) => {
+      if (!currentProfile || currentProfile.role !== 'admin') { event.stopImmediatePropagation(); event.preventDefault(); openAuth(); }
+    }, true);
+    document.getElementById('add-course').addEventListener('click', async (event) => {
+      event.stopImmediatePropagation(); event.preventDefault();
+      if (!currentProfile || currentProfile.role !== 'admin') { openAuth(); return; }
+      const title = prompt('اسم الدورة الجديدة:'); if (!title || !title.trim()) return;
+      const slug = title.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'course-' + Date.now();
+      const { error } = await database.from('courses').insert({ title: title.trim(), slug, kind: 'qodrat', delivery: 'recorded', status: 'draft', price: 0 });
+      if (error) { alert(error.message); return; }
+      alert('تمت إضافة الدورة كمسودة في قاعدة البيانات.');
+    }, true);
     const loadCourses = async () => {
       const { data, error } = await database.from('courses').select('title,kind,delivery,price,description').eq('status', 'published').order('created_at');
       if (error) { status.textContent = 'تعذّر تحميل البيانات'; status.style.color = '#b42318'; return; }
@@ -75,6 +135,8 @@
       status.textContent = '● قاعدة البيانات متصلة';
       status.style.color = '#087658';
     };
+    database.auth.onAuthStateChange(() => updateAccount());
+    updateAccount();
     loadCourses();
   })();
 </script>
