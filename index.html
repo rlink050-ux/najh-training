@@ -145,8 +145,15 @@
         else { alert('هذا الحساب ليس مديراً للمنصة. أنشئ حساب المدير ثم فعّل دوره من Supabase.'); await database.auth.signOut(); await updateAccount(); }
       }
     });
-    document.getElementById('admin-nav').addEventListener('click', (event) => {
-      if (!currentProfile || currentProfile.role !== 'admin') { event.stopImmediatePropagation(); event.preventDefault(); openAuth(true); }
+    document.getElementById('admin-nav').addEventListener('click', async (event) => {
+      const { data: { session } } = await database.auth.getSession();
+      if (!session) { event.stopImmediatePropagation(); event.preventDefault(); openAuth(true); return; }
+      const { data: freshProfile } = await database.from('profiles').select('full_name,role').eq('id', session.user.id).maybeSingle();
+      currentProfile = freshProfile || currentProfile;
+      if (!freshProfile || freshProfile.role !== 'admin') {
+        event.stopImmediatePropagation(); event.preventDefault();
+        alert('هذا الحساب ليس مديراً للمنصة. تأكد من صلاحية الحساب ثم سجّل الخروج والدخول مجدداً.');
+      }
     }, true);
     document.getElementById('add-course').addEventListener('click', async (event) => {
       event.stopImmediatePropagation(); event.preventDefault();
