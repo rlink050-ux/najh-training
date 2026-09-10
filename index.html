@@ -31,7 +31,9 @@
   <section class="view" id="payment"><div class="title-row"><h2>إتمام الاشتراك</h2><button class="text-btn" data-go="courses">العودة للدورات</button></div><div class="payment"><div class="card"><h3>اختر وسيلة الدفع</h3><label class="pay-option"><input type="radio" name="pay" checked> <b>مدى / Visa / Mastercard</b></label><label class="pay-option"><input type="radio" name="pay"> <b>Apple Pay</b></label><label class="pay-option"><input type="radio" name="pay"> <b>الدفع بالتقسيط</b></label><p class="muted">هذه واجهة تجريبية؛ تتم معالجة الدفع الحقيقي عبر بوابة آمنة.</p></div><div class="card summary"><h3>ملخص الطلب</h3><div class="spread"><span id="order-course">القدرات الشامل</span><b id="order-price">349 ر.س</b></div><div class="spread"><b>الإجمالي</b><b id="order-total">349 ر.س</b></div><button class="light" id="pay" style="width:100%;margin-top:18px">إتمام الدفع الآمن</button></div></div></section>
 </main><div class="toast" id="toast"></div>
 <div id="auth-modal" hidden style="position:fixed;inset:0;z-index:10;background:#17203399;padding:20px;align-items:center;justify-content:center"><form id="auth-form" class="card" style="width:min(420px,100%);margin:auto"><div class="title-row"><h3 id="auth-title">تسجيل الدخول</h3><button class="text-btn" type="button" id="auth-close">إغلاق</button></div><p class="muted" id="auth-description">سجّل دخولك لإدارة الدورات والمحتوى.</p><label class="muted" for="auth-name" id="auth-name-label" hidden>الاسم الكامل</label><input id="auth-name" class="auth-input" placeholder="الاسم الكامل" hidden><label class="muted" for="auth-email">البريد الإلكتروني</label><input id="auth-email" class="auth-input" type="email" required placeholder="name@example.com"><label class="muted" for="auth-password">كلمة المرور</label><input id="auth-password" class="auth-input" type="password" required minlength="6" placeholder="6 أحرف على الأقل"><button class="primary" style="width:100%;margin-top:15px" id="auth-submit">دخول</button><button class="text-btn" style="display:block;margin:12px auto 0" type="button" id="auth-mode">إنشاء حساب جديد</button></form></div>
-<style>.auth-input{display:block;width:100%;margin:6px 0 14px;padding:11px;border:1px solid var(--line);border-radius:9px;font:inherit}</style>
+<div id="course-modal" class="manage-modal" hidden><form id="course-form" class="manage-dialog"><div class="manage-heading"><div><span class="manage-icon">＋</span><h2>إضافة دورة جديدة</h2><p>أدخل المعلومات الأساسية ثم انشر الدورة عند جاهزيتها.</p></div><button type="button" class="modal-close" data-admin-modal-close aria-label="إغلاق">×</button></div><div class="manage-grid"><label>اسم الدورة<input id="course-title-input" required maxlength="120" placeholder="مثال: معسكر القدرات المكثف"></label><label>السعر بالريال<input id="course-price-input" type="number" min="0" step="1" value="0" required></label><label>التصنيف<select id="course-kind-input"><option value="qodrat">قدرات</option><option value="tahsili">تحصيلي</option></select></label><label>طريقة التقديم<select id="course-delivery-input"><option value="recorded">مسجل</option><option value="live">بث مباشر</option></select></label></div><label>وصف مختصر<textarea id="course-description-input" maxlength="400" placeholder="نبذة موجزة عن محتوى الدورة وفائدتها للمتدرب."></textarea></label><div class="manage-footer"><button type="button" class="light" data-admin-modal-close>إلغاء</button><button class="primary" id="course-save">حفظ كمسودة</button></div></form></div>
+<div id="instructor-modal" class="manage-modal" hidden><form id="instructor-form" class="manage-dialog compact"><div class="manage-heading"><div><span class="manage-icon">♙</span><h2>تعيين مدرب</h2><p>يجب أن يكون المدرب قد أنشأ حساباً في المنصة أولاً.</p></div><button type="button" class="modal-close" data-admin-modal-close aria-label="إغلاق">×</button></div><label>البريد الإلكتروني لحساب المدرب<input id="instructor-email-input" type="email" required placeholder="trainer@example.com"></label><div class="manage-footer"><button type="button" class="light" data-admin-modal-close>إلغاء</button><button class="primary" id="instructor-save">تعيين مدرب</button></div></form></div>
+<style>.auth-input{display:block;width:100%;margin:6px 0 14px;padding:11px;border:1px solid var(--line);border-radius:9px;font:inherit}.manage-modal{position:fixed;inset:0;z-index:20;padding:20px;background:#121a38a6;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(5px)}.manage-dialog{width:min(610px,100%);max-height:calc(100vh - 40px);overflow:auto;background:#fff;border:1px solid #ebe8ff;border-radius:22px;padding:26px;box-shadow:0 28px 70px #101a4c66;animation:dialog-in .2s ease-out}.manage-dialog.compact{width:min(470px,100%)}.manage-heading{display:flex;justify-content:space-between;gap:16px;margin-bottom:20px}.manage-heading h2{margin:4px 0 6px;font-size:23px;color:#18245a}.manage-heading p{margin:0;color:var(--muted);font-size:14px;line-height:1.7}.manage-icon{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#7651ed,#5531c5);color:#fff;font-weight:bold;font-size:22px}.modal-close{border:0;background:#f2f3f8;color:#536077;border-radius:50%;width:34px;height:34px;font-size:25px;line-height:1;cursor:pointer}.manage-dialog label{display:block;color:#344054;font-weight:bold;font-size:14px;margin-top:13px}.manage-dialog input,.manage-dialog select,.manage-dialog textarea{display:block;width:100%;margin-top:7px;border:1px solid #d9deea;border-radius:10px;padding:12px;font:inherit;color:#172033;background:#fcfcff}.manage-dialog input:focus,.manage-dialog select:focus,.manage-dialog textarea:focus{outline:3px solid #e9e3ff;border-color:#7855df}.manage-dialog textarea{min-height:92px;resize:vertical}.manage-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 14px}.manage-footer{display:flex;justify-content:flex-start;gap:10px;margin-top:23px;border-top:1px solid #eceef5;padding-top:18px}@keyframes dialog-in{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}@media(max-width:500px){.manage-dialog{padding:20px}.manage-grid{grid-template-columns:1fr}}</style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
   (() => {
@@ -167,22 +169,37 @@
         alert('هذا الحساب ليس مديراً للمنصة. تأكد من صلاحية الحساب ثم سجّل الخروج والدخول مجدداً.');
       }
     }, true);
-    document.getElementById('add-course').addEventListener('click', async (event) => {
+    const showManageModal = (id) => { const box = document.getElementById(id); box.hidden = false; box.style.display = 'flex'; setTimeout(() => box.querySelector('input,select,textarea')?.focus(), 20); };
+    const hideManageModal = (id) => { const box = document.getElementById(id); box.hidden = true; box.style.display = 'none'; };
+    document.querySelectorAll('[data-admin-modal-close]').forEach((button) => button.addEventListener('click', () => {
+      hideManageModal('course-modal'); hideManageModal('instructor-modal');
+    }));
+    document.querySelectorAll('.manage-modal').forEach((modalBox) => modalBox.addEventListener('click', (event) => {
+      if (event.target === modalBox) hideManageModal(modalBox.id);
+    }));
+    document.getElementById('add-course').addEventListener('click', (event) => {
       event.stopImmediatePropagation(); event.preventDefault();
       if (!currentProfile || currentProfile.role !== 'admin') { openAuth(); return; }
-      const title = prompt('اسم الدورة الجديدة:'); if (!title || !title.trim()) return;
-      const category = prompt('نوع الدورة: اكتب قدرات أو تحصيلي', 'قدرات');
-      const kind = category && category.includes('تحصيلي') ? 'tahsili' : 'qodrat';
-      const mode = prompt('طريقة التقديم: اكتب مباشر أو مسجل', 'مسجل');
-      const delivery = mode && mode.includes('مباشر') ? 'live' : 'recorded';
-      const priceInput = prompt('سعر الدورة بالريال (مثال: 349)', '0');
-      const price = Math.max(0, Number(priceInput) || 0);
-      const slug = 'course-' + Date.now();
-      const { error } = await database.from('courses').insert({ title: title.trim(), slug, kind, delivery, status: 'draft', price });
-      if (error) { alert(error.message); return; }
-      await loadAdminCourses();
-      alert('تمت إضافة الدورة كمسودة في قاعدة البيانات.');
+      document.getElementById('course-form').reset();
+      document.getElementById('course-price-input').value = '0';
+      showManageModal('course-modal');
     }, true);
+    document.getElementById('course-form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!currentProfile || currentProfile.role !== 'admin') { hideManageModal('course-modal'); openAuth(); return; }
+      const save = document.getElementById('course-save'); save.disabled = true; save.textContent = 'جارٍ الحفظ…';
+      const title = document.getElementById('course-title-input').value.trim();
+      const kind = document.getElementById('course-kind-input').value;
+      const delivery = document.getElementById('course-delivery-input').value;
+      const price = Math.max(0, Number(document.getElementById('course-price-input').value) || 0);
+      const description = document.getElementById('course-description-input').value.trim() || null;
+      const slug = 'course-' + Date.now();
+      const { error } = await database.from('courses').insert({ title, slug, kind, delivery, status: 'draft', price, description });
+      save.disabled = false; save.textContent = 'حفظ كمسودة';
+      if (error) { alert('تعذر حفظ الدورة: ' + error.message); return; }
+      hideManageModal('course-modal'); await loadAdminCourses();
+      alert('تمت إضافة الدورة كمسودة. اضغط «نشر» عندما تصبح جاهزة.');
+    });
     const loadCourses = async () => {
       const { data, error } = await database.from('courses').select('title,kind,delivery,price,description').eq('status', 'published').order('created_at');
       if (error) { status.textContent = 'تعذّر تحميل البيانات'; status.style.color = '#b42318'; return; }
@@ -244,14 +261,21 @@
         if (error) alert(error.message); else { await loadAdminCourses(); await loadAdminRegistrations(); alert('تم قبول طلب الالتحاق.'); }
       }
     });
-    document.getElementById('add-instructor').addEventListener('click', async () => {
+    document.getElementById('add-instructor').addEventListener('click', () => {
       if (!currentProfile || currentProfile.role !== 'admin') { openAuth(); return; }
-      const email = prompt('اكتب البريد الإلكتروني لحساب المدرب المسجل مسبقاً:'); if (!email || !email.trim()) return;
-      const { data, error } = await database.from('profiles').select('id,full_name').eq('email', email.trim().toLowerCase()).maybeSingle();
+      document.getElementById('instructor-form').reset(); showManageModal('instructor-modal');
+    });
+    document.getElementById('instructor-form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!currentProfile || currentProfile.role !== 'admin') { hideManageModal('instructor-modal'); openAuth(); return; }
+      const save = document.getElementById('instructor-save'); save.disabled = true; save.textContent = 'جارٍ التعيين…';
+      const email = document.getElementById('instructor-email-input').value.trim().toLowerCase();
+      const { data, error } = await database.from('profiles').select('id,full_name').eq('email', email).maybeSingle();
+      save.disabled = false; save.textContent = 'تعيين مدرب';
       if (error || !data) { alert('لم يُعثر على حساب بهذا البريد. على المدرب إنشاء حساب أولاً.'); return; }
       const { error: updateError } = await database.from('profiles').update({ role: 'instructor' }).eq('id', data.id);
       if (updateError) { alert(updateError.message); return; }
-      await loadAdminInstructors(); alert('تم تعيين ' + data.full_name + ' مدرباً.');
+      hideManageModal('instructor-modal'); await loadAdminInstructors(); alert('تم تعيين ' + data.full_name + ' مدرباً.');
     });
     document.getElementById('admin-instructors').addEventListener('click', async (event) => {
       const button = event.target.closest('.remove-instructor'); if (!button || !currentProfile || currentProfile.role !== 'admin') return;
